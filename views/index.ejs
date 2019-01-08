@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Blog App</title>
+		<link rel="stylesheet" href="/../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	</head>
+	<body>
+		<h1>Blog App</h1>
+		<% blogs.forEach( function(blog) { %>
+			<h2>
+				<%= blog.title %>
+			</h2>
+			<img src="<%= blog.image %>" alt="">
+			<small>
+				<%= blog.created %>
+			</small>
+			<p>
+				<%= blog.body %>
+			</p>
+			<hr>
+		<% }) %>
+	</body>
+</html>

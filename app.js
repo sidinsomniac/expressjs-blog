@@ -24,5 +24,20 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 // RESTful Routes
 
-app.listen(port,() => console.log('Server started'));
+app.get('/', (req,res) => {
+	res.redirect('/blogs');
+});
 
+app.get('/blogs', (req,res) => {
+	Blog.find({}, (err,blogs) => {
+		err ? console.log(err) : res.render('index',{blogs:blogs});
+	});
+});
+
+app.get('*', (req,res) => {
+	res.render('invalid');
+})
+
+app.listen(port, () => {
+	console.log('Server started');
+});
